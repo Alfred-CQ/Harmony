@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """Mapper script for counting word occurrences in a dataset for MapReduce"""
 

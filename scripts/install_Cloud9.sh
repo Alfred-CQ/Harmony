@@ -24,9 +24,9 @@
 # License:     MIT License
 # -------------------------------------------------------------------------------------
 
-source hm_bash_utils.sh
+source scripts/hm_bash_utils.sh
 
-error_log_file="../logs/Cloud9_errors.log"
+error_log_file="logs/Cloud9_errors.log"
 
 print_title "Starting Cloud9 Environment Setup"
 
@@ -35,14 +35,14 @@ install_package "Node.js" \
                 $error_log_file
 
 install_package "Development Packages" \
-                "sudo yum groupinstall -y 'Development Tools' && sudo yum install -y glibc-static" \
+                "sudo yum groupinstall -y 'Development Tools' && sudo yum install -y glibc-static"
                 $error_log_file
 
 install_package "Python 3 and pip" \
                 "sudo yum install -y python3-pip && pip3 install wheel" \
                 $error_log_file
 
-install_package "Python 3.9 and CodeIntel" \
+install_package "Python devel and CodeIntel" \
                 "sudo yum install -y python3.9-devel && pip3 install CodeIntel" \
                 $error_log_file
 
@@ -50,6 +50,4 @@ install_package "C9 script" \
                 "wget https://d3kgj69l4ph6w4.cloudfront.net/static/c9-install-2.0.0.sh && chmod +x c9-install-2.0.0.sh && ./c9-install-2.0.0.sh" \
                 $error_log_file
 
-print_title "Installation process finished"
-
-print_title "Cloud9 Environment Setup Completed, check $error_log_file for any errors"
+print_title "Cloud9 Environment Setup Finished, check $error_log_file for any errors"

@@ -2,8 +2,6 @@ from flask import render_template, jsonify, current_app, Blueprint, redirect, ur
 import os
 import json
 
-from .utils import load_and_move_data
-
 bp = Blueprint("main", __name__)
 
 

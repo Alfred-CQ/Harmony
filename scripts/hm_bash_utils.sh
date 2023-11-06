@@ -24,7 +24,7 @@
 # -------------------------------------------------------------------------------------
 
 print() {
-  echo -e "\e[1;34m=== $1 ===\e[0m"
+  echo -e "$1  ==== $2 ====\e[0m"
 }
 
 # Function: print_title
@@ -33,7 +33,7 @@ print() {
 # Parameters:
 #   $1 - The title text to be printed
 print_title() {
-  echo -e "\e[1;36m******* $1 *******\e[0m"
+  echo -e "$1 ******* $2 *******\e[0m"
 }
 
 # Function: print_success
@@ -43,7 +43,7 @@ print_title() {
 # Parameters:
 #   $1 - The name of the package that was successfully installed
 print_success() {
-  echo -e "\e[1;32m$1 installed successfully.\e[0m"
+  echo -e "\e[1;32m    $1 successfully.\e[0m"
 }
 
 # Function: print_failed
@@ -53,9 +53,8 @@ print_success() {
 # Parameters:
 #   $1 - The name of the package that failed to install
 print_failed() {
-  echo -e "\e[1;31mFailed to install $1. Check the log for details.\e[0m"
+  echo -e "\e[1;31m    Failed $1 -> Check the logs for details.\e[0m"
 }
-
 
 # Function: install_package
 # Description: Attempts to install a package and prints a status message. Logs errors
@@ -70,10 +69,23 @@ install_package() {
   install_command=$2
   error_log_file=$3
 
-  print_title "Installing $package_name"
+  print "\e[1;34m" "Installing $package_name"
   if eval $install_command > /dev/null 2>> $error_log_file; then
-    print $package_name
+    print_success $package_name
   else
-    print $package_name
+    print_failed $package_name
+  fi
+}
+
+run_command() {
+  description=$1
+  command=$2
+  error_log_file=$3
+
+  print "\e[93m" "Starting $description"
+  if eval $command > /dev/null 2>> $error_log_file; then
+    print_success $description
+  else
+    print_failed $description
   fi
 }

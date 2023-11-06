@@ -50,6 +50,6 @@ install_package "C9 script" \
                 "wget https://d3kgj69l4ph6w4.cloudfront.net/static/c9-install-2.0.0.sh && chmod +x c9-install-2.0.0.sh && ./c9-install-2.0.0.sh" \
                 $error_log_file
 
-print_finish "Installation process finished"
+print_title "Installation process finished"
 
 print_title "Cloud9 Environment Setup Completed, check $error_log_file for any errors"

@@ -23,13 +23,17 @@
 # License:     MIT License
 # -------------------------------------------------------------------------------------
 
+print() {
+  echo -e "\e[1;34m=== $1 ===\e[0m"
+}
+
 # Function: print_title
 # Description: Prints a title for the installation step in bold blue color.
 # Usage: print_title "Title of the Step"
 # Parameters:
 #   $1 - The title text to be printed
 print_title() {
-  echo -e "\e[1;34m=== $1 ===\e[0m"
+  echo -e "\e[1;36m******* $1 *******\e[0m"
 }
 
 # Function: print_success
@@ -52,13 +56,6 @@ print_failed() {
   echo -e "\e[1;31mFailed to install $1. Check the log for details.\e[0m"
 }
 
-# Function: print_finish
-# Description: Prints a message in bold cyan color indicating that the installation
-#              process has finished.
-# Usage: print_finish
-print_finish() {
-  echo -e "\e[1;36mInstallation process finished.\e[0m"
-}
 
 # Function: install_package
 # Description: Attempts to install a package and prints a status message. Logs errors
@@ -75,8 +72,8 @@ install_package() {
 
   print_title "Installing $package_name"
   if eval $install_command > /dev/null 2>> $error_log_file; then
-    print_success $package_name
+    print $package_name
   else
-    print_failed $package_name
+    print $package_name
   fi
 }

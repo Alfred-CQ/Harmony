@@ -1,0 +1,3 @@
+{"id": 1, "title": "Harmony Search Algorithm", "content": "Content of document 1...", "description": "An introduction to the Harmony Search Algorithm", "url": "http://example.com/doc1", "links": ["http://example.com/ref1", "http://example.com/ref2"]}
+{"id": 2, "title": "Harmony in Music", "content": "Content of document 2...", "description": "Exploring the role of harmony in music theory and practice like blank space", "url": "http://example.com/doc2", "links": ["http://example.com/ref3", "http://example.com/ref4"]}
+{"id": 3, "title": "Harmony and Evolution", "content": "Content of document 3...", "description": "A study on the evolutionary aspects of harmonic perception", "url": "http://example.com/doc3", "links": ["http://example.com/ref5", "http://example.com/ref6"]}

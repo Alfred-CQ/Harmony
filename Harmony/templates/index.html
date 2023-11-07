@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Harmony Browser</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/style.css') }}"
+        />
+    </head>
+    <body
+        style="background-image: url('{{ url_for('static', filename='images/background.png') }}');"
+    >
+        <div class="search-container">
+            <h1>Harmony</h1>
+            <form action="#" method="post">
+                <input
+                    type="text"
+                    name="search"
+                    id="search"
+                    placeholder="Search the web..."
+                />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </body>
+</html>

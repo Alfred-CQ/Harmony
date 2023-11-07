@@ -24,6 +24,7 @@ class WikipediaSpiderSpider(scrapy.Spider):
     def parse(self, response):
         item = WikipediaScraperItem()
         item['title'] = response.xpath('//*[@id="firstHeading"]/span/text()').get()
+        item['title'] = response.xpath('//*[@id="firstHeading"]/i').get() if not item['title'] else item['title']
         item['content'] = ' '.join(response.css('p::text').getall())
         item['current_link'] = response.url
         item['links'] = response.css('a::attr(href)').getall()

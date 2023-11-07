@@ -17,7 +17,7 @@ def assign_id_to_url():
         article_to_save = {}
         article_to_save['content'] = article['content']
         article_to_save['title'] = article['title']
-        article_to_save['description'] = article['title'] + article['content'][:200]
+        article_to_save['description'] = article_to_save['title'] + article['content'][:200] + '...'
         article_to_save['link'] = article['current_link']
         article_to_save['id'] = i
 

@@ -1,3 +1,4 @@
+import json
 
 def pagerank(graph, iters=100, d=0.85):
     N = len(graph)
@@ -14,4 +15,14 @@ def pagerank(graph, iters=100, d=0.85):
         rank = [(1 - d) / N + d * new_rank[i] for i in range(N)]
     print()
     print(rank)
+    print(len(rank))
+
+    dict_rank = {}
+
+    for i, ranking in enumerate(rank):
+        dict_rank[i] = ranking
+
+    with open("dict_rank.json", 'w') as file:
+            json.dump(dict_rank, file)
+
     return rank

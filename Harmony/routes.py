@@ -9,5 +9,11 @@ bp = Blueprint("main", __name__)
 def index():
     if request.method == "POST":
         query = request.form["search"]
-        return redirect(url_for("search_results", query=query))
+        if query != "":
+            return redirect(url_for("main.search_results", query=query))
     return render_template("index.html")
+
+
+@bp.route("/search_results/<query>")
+def search_results(query):
+    return render_template("search_results.html", query=query)

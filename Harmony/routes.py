@@ -2,6 +2,8 @@ from flask import render_template, jsonify, request, Blueprint, redirect, url_fo
 import os
 import json
 
+from .models import Document, Word
+
 bp = Blueprint("main", __name__)
 
 
@@ -16,4 +18,10 @@ def index():
 
 @bp.route("/search_results/<query>")
 def search_results(query):
-    return render_template("search_results.html", query=query)
+    documents = (
+        Document.query.join(Word, Document.doc_id == Word.doc_id)
+        .filter(Word.word == query)
+        .all()
+    )
+
+    return render_template("search_results.html", query=query, documents=documents)

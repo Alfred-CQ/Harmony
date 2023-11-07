@@ -15,22 +15,15 @@
             <h1>Search Results for "{{ query }}"</h1>
             <div class="results">
                 <!-- Mockup for search results; this will need to be dynamic based on actual search results -->
+                {% for document in documents %}
                 <div class="result-item">
-                    <h2><a href="#">Result Title 1</a></h2>
-                    <p>
-                        Description for result 1. This should be a summary of
-                        the result content.
-                    </p>
-                    <a href="#" class="result-link">www.examplelink1.com</a>
+                    <h2><a href="#">{{ document.title }}</a></h2>
+                    <p>{{ document.description }}</p>
+                    <a href="{{ document.url }}" class="result-link"
+                        >{{ document.url }}</a
+                    >
                 </div>
-                <div class="result-item">
-                    <h2><a href="#">Result Title 2</a></h2>
-                    <p>
-                        Description for result 2. This should be a summary of
-                        the result content.
-                    </p>
-                    <a href="#" class="result-link">www.examplelink2.com</a>
-                </div>
+                {% endfor %}
                 <!-- Repeat the above block for each result -->
             </div>
             <a href="{{ url_for('main.index') }}" class="back-button"

@@ -5,24 +5,22 @@ import string
 
 nltk.download('punkt')
 
-stemmer = PorterStemmer()
+def limpiar_parrafo(parrafo):
 
-archivo_entrada = "contenido.txt"
-archivo_salida = "texto_limpio.txt"
+    stemmer = PorterStemmer()
 
-signos_puntuacion = string.punctuation + "''“”– .. `` ' - — ' "
+    signos_puntuacion = string.punctuation + "''“”– .. `` ' - — ' "
 
-with open(archivo_entrada, 'r') as entrada:
-    texto = entrada.read()
+    palabras = word_tokenize(parrafo)
 
-palabras = word_tokenize(texto)
+    palabras_limpias = [stemmer.stem(palabra) for palabra in palabras if palabra not in signos_puntuacion]
 
-palabras_limpias = [stemmer.stem(palabra) for palabra in palabras if palabra not in signos_puntuacion]
+    texto_limpiado = ' '.join(palabras_limpias)
 
-texto_limpiado = ' '.join(palabras_limpias)
+    return texto_limpiado
 
-with open(archivo_salida, 'w') as salida:
- 
-    salida.write(texto_limpiado)
+parrafo_entrada = "Big data primarily refers to data sets that are too large or complex to be dealt with by traditional data-processing application software. Data with many entries (rows) offer greater statistical power, while data with higher complexity (more attributes or columns) may lead to a higher false discovery rate"
+texto_output = limpiar_parrafo(parrafo_entrada)
 
-print("Texto limpiado y guardado en", archivo_salida)
+print("Texto output:")
+print(texto_output)

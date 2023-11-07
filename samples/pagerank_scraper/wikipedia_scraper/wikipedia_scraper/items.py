@@ -12,4 +12,5 @@ class WikipediaScraperItem(scrapy.Item):
     title = scrapy.Field()
     content = scrapy.Field()
     links = scrapy.Field()
+    current_link = scrapy.Field()
     

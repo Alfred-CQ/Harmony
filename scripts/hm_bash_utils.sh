@@ -33,7 +33,7 @@ print() {
 # Parameters:
 #   $1 - The title text to be printed
 print_title() {
-  echo -e "$1 ******* $2 *******\e[0m"
+  echo -e "******* $1 *******\e[0m"
 }
 
 # Function: print_success

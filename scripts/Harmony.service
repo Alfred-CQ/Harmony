@@ -2,8 +2,8 @@
 Description=Gunicorn instance for Harmony app
 After=network.target
 [Service]
-User=ec2-user
-Group=ec2-user
+User=hadoop
+Group=hadoop
 WorkingDirectory=
 ExecStart=
 Restart=always

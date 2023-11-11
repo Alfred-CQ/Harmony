@@ -35,7 +35,7 @@ install_package "Node.js" \
                 $error_log_file
 
 install_package "Development Packages" \
-                "sudo yum groupinstall -y 'Development Tools' && sudo yum install -y glibc-static"
+                "sudo yum groupinstall -y 'Development Tools' && sudo yum install -y glibc-static" \
                 $error_log_file
 
 install_package "Python 3 and pip" \

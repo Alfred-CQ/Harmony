@@ -33,7 +33,7 @@ install_package "Installing Harmony Web Browser Requirements" \
                 $error_log_file
 
 run_command "Setup Harmony service config" \
-            "sed -i 's|WorkingDirectory=.*|WorkingDirectory=$PROJECT_DIR|' scripts/Harmony.service && sed -i 's|ExecStart=.*|ExecStart=$PROJECT_DIR/.venv/bin/gunicorn -b 0.0.0.0:8000 harmony:app|' scripts/Harmony.service" \
+            "sed -i 's|WorkingDirectory=.*|WorkingDirectory=$PROJECT_DIR|' scripts/Harmony.service && sed -i 's|ExecStart=.*|ExecStart=$PROJECT_DIR/.venv/bin/gunicorn -b 0.0.0.0:8000 app:app|' scripts/Harmony.service" \
             $error_log_file
 
 run_command "Setup Harmony service daemon" \
@@ -42,8 +42,8 @@ run_command "Setup Harmony service daemon" \
 
 sudo systemctl status Harmony 
 
-run_command "Setup Harmony Nginx" \
-            "sudo systemctl start nginx && sudo systemctl enable nginx && sudo cp scripts/HarmonyWeb.conf /etc/nginx/conf.d/ && sudo systemctl restart nginx" \
-            $error_log_file
+# run_command "Setup Harmony Nginx" \
+#             "sudo systemctl start nginx && sudo systemctl enable nginx && sudo cp scripts/HarmonyWeb.conf /etc/nginx/conf.d/ && sudo systemctl restart nginx" \
+#             $error_log_file
 
 print_title "Primary Node Setup Finished, check $error_log_file for any errors"

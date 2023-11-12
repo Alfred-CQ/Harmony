@@ -1,10 +1,8 @@
-from flask import render_template, jsonify, request, Blueprint, redirect, url_for
-import os
-import json
+from flask import render_template, request, redirect, url_for
 
-from .models import Document, Word
-
-bp = Blueprint("main", __name__)
+from app.routes import bp
+from app.models.document import Document
+from app.models.word import Word
 
 
 @bp.route("/", methods=["GET", "POST"])

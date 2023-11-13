@@ -19,7 +19,7 @@ def json_to_docs():
         article_to_save["id"] = i
         article_to_save["title"] = article["title"]
         article_to_save["description"] = (
-            article_to_save["title"] + article["content"][:200] + "..."
+            article["content"][:200] + "..."
         )
 
         article_to_save["content"] = article["content"]

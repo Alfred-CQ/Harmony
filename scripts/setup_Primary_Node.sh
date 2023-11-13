@@ -33,7 +33,7 @@ install_package "Installing Harmony Web Browser Requirements" \
                 $error_log_file
 
 run_command "Setup Harmony service config" \
-            "sed -i 's|WorkingDirectory=.*|WorkingDirectory=$PROJECT_DIR|' scripts/Harmony.service && sed -i 's|ExecStart=.*|ExecStart=$PROJECT_DIR/.venv/bin/gunicorn -b 0.0.0.0:8000 app:app|' scripts/Harmony.service" \
+            "sed -i 's|WorkingDirectory=.*|WorkingDirectory=$PROJECT_DIR|' scripts/Harmony.service && sed -i 's|ExecStart=.*|ExecStart=$PROJECT_DIR/.venv/bin/gunicorn -b 0.0.0.0:8000 harmony:app|' scripts/Harmony.service" \
             $error_log_file
 
 run_command "Setup Harmony service daemon" \
